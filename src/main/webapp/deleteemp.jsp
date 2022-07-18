@@ -9,5 +9,11 @@
 <body>
 <%Integer result = (Integer)request.getAttribute("result"); %>
 <h1><%= result%> Record Deleted !!!</h1>
+
+<div id="result">result</div>
+
+<script>
+  document.getElementById("")
+</script>
 </body>
 </html>

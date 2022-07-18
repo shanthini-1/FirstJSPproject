@@ -13,6 +13,6 @@
 	<h1>Employee Added successfully</h1>
 	<%Integer result = (Integer)request.getAttribute("result"); %>
 <%= result%>
-	<a href="/fetchallemp.html">view</a>
+	<a href="ListAllEmployeesServlet">view</a>
 </body>
 </html>

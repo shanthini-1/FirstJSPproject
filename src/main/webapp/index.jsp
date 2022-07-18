@@ -12,13 +12,13 @@
 	<a href="addemp.html"> Add Employee</a>
 	</div>
 	<div>
-	<a href="updateemp2.html"> Update Employee</a> 
+	<a href="updateemp.html"> Update Employee</a> 
 	</div>
 	<div>
-	<a href="deleteemp2.html"> Delete Employee</a> 
+	<a href="deleteemp.html"> Delete Employee</a> 
 	</div>
 	<div>
-	<a href="fetchallemp.html"> Fetch All Employee</a> 
+	<a href="ListAllEmployeesServlet"> Fetch All Employee</a> 
 	</div>
 	
 </body>

@@ -9,6 +9,10 @@
 <title>Fetch All Employee</title>
 </head>
 <body>
+<div>
+	<a href="index.jsp"> Index Page</a>
+	</div>
+	<div>
 	<table>
 		<thead>'list of all Employees'</thead>
 		<%
