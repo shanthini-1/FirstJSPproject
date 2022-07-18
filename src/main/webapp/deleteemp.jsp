@@ -7,16 +7,7 @@
 <title>Delete Employee</title>
 </head>
 <body>
-<form action="EmployeeA" method="post">
-		<!--need to mention method = post  -->
-		<div style="Width: 50%; margin: 0 auto">
-			<div>
-				Employee ID : <input type='text' name='id'>
-			</div>
-			<div>
-				<input type='submit' value="DELETE" name="submit">
-			</div>
-		</div>
-	</form>
+<%Integer result = (Integer)request.getAttribute("result"); %>
+<h1><%= result%> Record Deleted !!!</h1>
 </body>
 </html>

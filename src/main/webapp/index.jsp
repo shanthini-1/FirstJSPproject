@@ -9,16 +9,16 @@
 <body>
 	<h1>Welcome to JSP</h1>
 	<div>
-	<a href="addemp.jsp"> Add Employee</a>
+	<a href="addemp.html"> Add Employee</a>
 	</div>
 	<div>
-	<a href="updateemp.jsp"> Update Employee</a> 
+	<a href="updateemp2.html"> Update Employee</a> 
 	</div>
 	<div>
-	<a href="deleteemp.jsp"> Delete Employee</a> 
+	<a href="deleteemp2.html"> Delete Employee</a> 
 	</div>
 	<div>
-	<a href="fetchallemp.jsp"> Fetch All Employee</a> 
+	<a href="fetchallemp.html"> Fetch All Employee</a> 
 	</div>
 	
 </body>

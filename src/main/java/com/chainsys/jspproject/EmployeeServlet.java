@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,13 +26,13 @@ import com.chainsys.jspproject.pojo.Employee;
  * Servlet implementation class AddEmployee
  */
 @WebServlet("/EmployeeA")
-public class EmployeeA extends HttpServlet {
+public class EmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeA() {
+    public EmployeeServlet() {
         super();
     }
 
@@ -39,32 +40,18 @@ public class EmployeeA extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter out = response.getWriter();
-
 		List<Employee> allEmployees = EmployeeDao.getAllEmployee();
-		Iterator<Employee> empIterator = allEmployees.iterator();
-//		out.print("<table border=\"1\"><tr><th>Emp ID</th><th>First Name</th><th>Last Name</th><th>E-mail</th><th>Hire Date</th><th>Job ID</th><th>Salary</th></tr>");
-		while (empIterator.hasNext()) {
-			Employee result = empIterator.next();
-//			out.print("<tr><td>" + result.getEmp_id() + "</td><td>" + result.getFirst_name() + "</td><td>"
-//					+ result.getLast_name() + "</td><td>" + result.getEmail() + "</td><td>" + result.getHire_date()
-//					+ "</td><td>" + result.getJob_id() + "</td><td>" + result.getSalary() + "</td></tr>");
-//		}
-//		out.print("</table>");
-		out.println("<hr/>");// in emp
-
-        out.println("<p>"+result.getEmp_id() + "," + result.getFirst_name() + "," + result.getLast_name() + ","
-                + result.getEmail() + "," + result.getHire_date() + "," + result.getJob_id() + ","
-                + result.getSalary()+"</p>");
-		}
+		request.setAttribute("emplist",allEmployees);
+		RequestDispatcher rd = request.getRequestDispatcher("/fetchallemp.jsp");
+		rd.forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().print("<h1>Post Called </h1>");
+//		response.getWriter().print("<h1>Post Called </h1>");
 //		here we can redirect to jsp
 		PrintWriter out = response.getWriter();
 		String submitValue = request.getParameter("submit");
@@ -222,7 +209,11 @@ public class EmployeeA extends HttpServlet {
 				String errorPage = ExceptionManager.HandleException(err, source, message);
 				out.print(errorPage);
 			}
-			out.println("<div> Add New Employee: " + result + "</div>");
+		    request.setAttribute("result",result);
+			RequestDispatcher rd = request.getRequestDispatcher("/addemp.jsp");
+			rd.forward(request, response);
+			
+//			out.println("<div> Add New Employee: " + result + "</div>");
 			// + new Employee()); -> from the servlet send only
 			// object are illegal.
 		} else {
@@ -381,7 +372,10 @@ public class EmployeeA extends HttpServlet {
 			String errorPage = ExceptionManager.HandleException(err, source, message);
 			out.print(errorPage);
 		}
-		out.println("<div> Update Employee: " + result + "</div>");
+		request.setAttribute("result",result);
+		RequestDispatcher rd = request.getRequestDispatcher("/updateemp.jsp");
+		rd.forward(request, response);
+//		out.println("<div> Update Employee: " + result + "</div>");
 	}
 
 	/**
@@ -420,7 +414,10 @@ public class EmployeeA extends HttpServlet {
 			String errorPage = ExceptionManager.HandleException(e, source, message);
 			out.print(errorPage);
 		}
-		out.print("<div> Deleted Employee: " + result + "</div>");
+		request.setAttribute("result",result);
+		RequestDispatcher rd = request.getRequestDispatcher("/deleteemp.jsp");
+		rd.forward(request, response);
+//		out.print("<div> Deleted Employee: " + result + "</div>");
 	}
 
 
