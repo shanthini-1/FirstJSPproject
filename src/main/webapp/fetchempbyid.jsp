@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List,java.util.ArrayList"%>
 <%@ page import="com.chainsys.springmvc.pojo.Employee"%>
 <!DOCTYPE html>
 <html>
@@ -13,10 +14,10 @@
 	</div>
 	<div>
 	<table>
-		<thead>' Employee '</thead>
+		<thead>'list of all Employees'</thead>
 		<%
-		Employee Emp = new Employee()request.getAttribute("result");
-		%>
+		List<Employee> allEmployee = (ArrayList<Employee>)request.getAttribute("emplist");
+		for (Employee emp: allEmployee) {%>
 		<tr>
 			<td><%=emp.getEmp_id()%></td>
 			<td><%=emp.getFirst_name()%></td>
@@ -26,6 +27,9 @@
 			<td><%=emp.getJob_id()%></td>
 			<td><%=emp.getSalary()%></td>
 		</tr>
-		</table>
+		<%
+		}
+		%>
+	</table>
 </body>
 </html>

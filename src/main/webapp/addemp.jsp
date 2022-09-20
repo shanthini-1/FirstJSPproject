@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List,java.util.ArrayList"%>
-<%@ page import="com.chainsys.jspproject.pojo.Employee"%>
+<%-- <%@ page import="com.chainsys.springmvc.pojo.Employee"%> --%>
 
 <!DOCTYPE html>
 <html>
